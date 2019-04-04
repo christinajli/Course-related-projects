@@ -1,18 +1,7 @@
-"""
-Name: Christina Li
-Student number: 20001595
-Project: Implementing an Artificial Neural Network to Predict Cardiovascular Disease
-
-Overview: using multilayer perceptron to create ANN model
-
-"""
-
 import numpy as np
 import pandas as pd
 import random
 from sklearn.model_selection import train_test_split
-import warnings
-warnings.filterwarnings("ignore")
 
 # ------------------------------------------Data pre-processing------------------------------------- #
 # import data set
@@ -51,12 +40,8 @@ def sigmoid(activation):
 
 
 def weight_init(num_input, num_output):
-    # currently defined with one hidden layer of size num_hidden
-    # w1 = np.random.uniform(low=0, high=1, size=(num_input, num_hidden))
-    # w2 = np.random.uniform(low=0, high=1, size=(num_hidden, num_output))
-
     w1 = np.random.uniform(low=0, high=1, size=(num_input, num_output))
-    return w1  #, w2
+    return w1
 
 
 def perceptron(train_input, train_output):
@@ -84,7 +69,6 @@ def perceptron(train_input, train_output):
 
     num_input = len(train_input[0])  # number of input categories
     num_output = len(set(train_output))  # number of output categories
-    # num_hidden = 5  # trial and error for optimum result
 
     # start with randomly chosen weight vector w_0
     w1 = weight_init(num_input, num_output)
